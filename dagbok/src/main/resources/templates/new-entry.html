@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nytt Inlägg</title>
+</head>
+<body>
+    <h1>Skapa Nytt Inlägg</h1>
+    <form method="post" th:action="@{/save-entry}" th:object="${entry}">
+        <label for="title">Rubrik:</label>
+        <input type="text" id="title" name="title" th:field="*{title}" required><br>
+        <label for="text">Text:</label>
+        <textarea id="text" name="text" th:field="*{text}" required></textarea><br>
+        <label for="date">Datum:</label>
+        <input type="date" id="date" name="date" th:field="*{date}" required><br>
+        <button type="submit">Spara</button>
+    </form>
+</body>
+</html>
