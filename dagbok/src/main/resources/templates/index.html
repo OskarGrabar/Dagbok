@@ -7,12 +7,15 @@
 </head>
 <body>
     <h1>Dagboksinlägg</h1>
+    <a href="/new-entry">Skapa nytt inlägg</a>
     <ul>
         <li th:each="entry : ${entries}">
             <h2 th:text="${entry.title}"></h2>
             <p th:text="${entry.text}"></p>
             <small th:text="${entry.date}"></small>
-            <a th:href="@{/delete-entry(id=${entry.id})}">[Ta bort]</a>
+            <br>
+            <a th:href="@{/edit-entry(id=${entry.id})}">Redigera</a>
+            <a th:href="@{/delete-entry(id=${entry.id})}">Ta bort</a>
         </li>
     </ul>
 </body>
