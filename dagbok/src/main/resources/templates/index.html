@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagbok</title>
+</head>
+<body>
+    <h1>Dagboksinlägg</h1>
+    <ul>
+        <li th:each="entry : ${entries}">
+            <h2 th:text="${entry.title}"></h2>
+            <p th:text="${entry.text}"></p>
+            <small th:text="${entry.date}"></small>
+        </li>
+    </ul>
+</body>
+</html>
