@@ -12,6 +12,7 @@
             <h2 th:text="${entry.title}"></h2>
             <p th:text="${entry.text}"></p>
             <small th:text="${entry.date}"></small>
+            <a th:href="@{/delete-entry(id=${entry.id})}">[Ta bort]</a>
         </li>
     </ul>
 </body>

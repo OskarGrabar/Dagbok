@@ -42,5 +42,10 @@ public String updateEntry(DiaryEntry diaryEntry) {
     diaryEntryRepository.save(diaryEntry);
     return "redirect:/";
 }
+@GetMapping("/delete-entry")
+public String deleteEntry(@RequestParam int id) {
+    diaryEntryRepository.deleteById(id);
+    return "redirect:/";
+}
 
 }
