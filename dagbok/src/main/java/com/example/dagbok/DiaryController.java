@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DiaryController {
@@ -28,4 +29,18 @@ public String saveEntry(DiaryEntry diaryEntry) {
     diaryEntryRepository.save(diaryEntry);
     return "redirect:/";
 }
+@GetMapping("/edit-entry")
+public String editEntryForm(@RequestParam int id, Model model) {
+    DiaryEntry entry = diaryEntryRepository.findById(id)
+        .orElseThrow(() -> new IllegalArgumentException("Invalid entry ID:" + id));
+    model.addAttribute("entry", entry);
+    return "edit-entry";
+}
+
+@PostMapping("/update-entry")
+public String updateEntry(DiaryEntry diaryEntry) {
+    diaryEntryRepository.save(diaryEntry);
+    return "redirect:/";
+}
+
 }
